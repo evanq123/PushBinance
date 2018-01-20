@@ -1,5 +1,5 @@
 {
-"binance_api_key":"[key]",
-"binance_api_secret":"[secret]",
-"push_api_key":"[oauth]"
+"binance_api_key":"KEY_GOES_HERE",
+"binance_api_secret":"KEY_GOES_HERE",
+"push_api_key":"KEY_GOES_HERE"
 }
