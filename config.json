@@ -1,0 +1,5 @@
+{
+"binance_api_key":"[key]",
+"binance_api_secret":"[secret]",
+"push_api_key":"[oauth]"
+}

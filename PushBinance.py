@@ -1,6 +1,7 @@
 import time
 import datetime
 import sys
+import json
 try:
     from bs4 import BeautifulSoup
     from pushbullet import PushBullet
@@ -10,10 +11,14 @@ except ImportError:
           "https://github.com/evanq123/PushBinance \n")
     sys.exit(1)
 
-api_key = input("Enter your binance api key: ")
-api_secret = input("Enter your binance api secret: ")
+with open('config.json') as json_data_file:
+    data = json.load(json_data_file)
+
+api_key = data["binance_api_key"]
+api_secret = data["binance_api_secret"]
 client = Client(api_key, api_secret)
-push_key = input("Enter your PushBullet api key: ")
+push_key = data["push_api_key"]
+
 symbol = input("Enter the symbol: ").upper() + 'BTC'
 threshold = float(input("Enter your threshold in BTC: "))
 intervals = 5 # Default 5s between checks.
@@ -39,7 +44,7 @@ while True:
     date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     if price_past_threshold() and message_sent is False:
         msg = ("As of, {} EST, the price for {} is >= {} BTC (at {})"
-               "".format(date, symbol, threshold, get_rate(currency)))
+               "".format(date, symbol, threshold, get_price()))
 
         print("Sending message to PushBullet...\n")
         push_message(msg)
@@ -47,7 +52,7 @@ while True:
 
     if not price_past_threshold() and message_sent is True:
         msg = ("As of, {} EST, the rate for {} is < {} BTC (at {})"
-               "".format(date, symbol, threshold, get_rate(currency)))
+               "".format(date, symbol, threshold, get_price()))
         print("Sending message to PushBullet...\n")
         push_message(msg)
         message_sent = False
