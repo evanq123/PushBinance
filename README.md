@@ -1,8 +1,8 @@
-# PushStocks v1.1 release
+# PushBinance v1.1 release
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-**PushStocks** *is a self-hosted script* that uses the python-binance wrapper to check crypto prices in Binance and notifies using PushBullet when a price falls under or passes a threshold.
+**PushBinance** *is a self-hosted script* that uses the python-binance wrapper to check crypto prices in Binance and notifies using PushBullet when a price falls under or passes a threshold.
 
 # Requirements:
 * [Python3](https://www.python.org)
