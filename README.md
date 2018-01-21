@@ -17,7 +17,8 @@
 5) At [PushBullet](https://www.pushbullet.com), goto `Settings > Create Access Token` and save the key.
 6) Create an account at [Binance](https://www.binance.com), goto `Account Profile > API > API Settings` and save the key and secret.
 7) Open config.json and input the keys between the quotes. i.e., `"binance_api_key":"xxxxxxxxxxxx",`
-8) Type `python3 pushstocks.py` into the terminal.
+8) Type `python3 PushBinance.py` into the terminal.
+9) Enter the threshold amount in BTC to be notified, and the symbol. i.e., `0.0123` then `LTC`.
 
 # Planned:
 * Send messages for fatal errors and close prices.
